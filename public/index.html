@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChatterBox</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form id="join" class="join">
+    <h1>ChatterBox</h1>
+    <input name="nick" placeholder="Nickname" required maxlength="24">
+    <input name="room" placeholder="Room (e.g. general)" value="general" required maxlength="31">
+    <button>Join</button>
+    <p class="error" id="join-error"></p>
+  </form>
+
+  <div id="chat" class="chat" hidden>
+    <aside>
+      <h2 id="room-name"></h2>
+      <h3>Online</h3>
+      <ul id="users"></ul>
+      <button id="leave" class="secondary">Switch room</button>
+    </aside>
+    <section>
+      <button id="older" class="secondary">Load older</button>
+      <ol id="messages"></ol>
+      <p id="typing" class="muted"></p>
+      <form id="send">
+        <input name="text" placeholder="Say something..." autocomplete="off" maxlength="1000">
+        <button>Send</button>
+      </form>
+      <p class="error" id="send-error"></p>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
